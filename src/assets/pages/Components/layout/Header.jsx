@@ -1,36 +1,41 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
+  const isActive = ({ isActive }) =>
+    isActive
+      ? "text-[#F15E75] dark:text-[#F15E75] hover:underline hover:text-[#F15E75]"
+      : "text-gray-900 dark:text-white hover:underline hover:text-[#F15E75]";
+
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-          <Link
+          <NavLink
             href="https://flowbite.com"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
               src="../../../../../public/video-player.png"
               className="h-8"
-              alt="Flowbite Logo"
+              alt=" Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Movie Hunter
             </span>
-          </Link>
+          </NavLink>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
-            <Link
+            <NavLink
               href="tel:5541251234"
               className="text-sm  text-gray-500 dark:text-white hover:underline"
             >
               +88 01633-247472
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               href="#"
               className="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
             >
               Login
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>
@@ -39,37 +44,24 @@ export default function Header() {
           <div className="flex items-center justify-center">
             <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
               <li>
-                <Link
-                  to={"/"}
-                  className="text-gray-900 dark:text-white hover:underline"
-                  aria-current="page"
-                >
+                <NavLink to={"/"} className={isActive} aria-current="page">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
-                  to={"/about"}
-                  className="text-gray-900 dark:text-white hover:underline"
-                >
+                <NavLink to={"/about"} className={isActive}>
                   About
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
-                  to={"/movie"}
-                  className="text-gray-900 dark:text-white hover:underline"
-                >
+                <NavLink to={"/movie"} className={isActive}>
                   Movies
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
-                  to={"/contact"}
-                  className="text-gray-900 dark:text-white hover:underline"
-                >
+                <NavLink to={"/contact"} className={isActive}>
                   Contact
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
