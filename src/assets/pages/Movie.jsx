@@ -7,18 +7,20 @@ export default function Movie() {
   console.log(moviesData);
 
   return (
-    <ul className="flex flex-wrap justify-center items-center gap-4 py-10">
-      {movies?.map((curMovies) => {
-        return (
-          <Card
-            key={curMovies.imdbID}
-            image={curMovies.Poster}
-            title={curMovies.Title}
-            type={curMovies.Type}
-            Year={curMovies.Year}
-          />
-        );
-      })}
-    </ul>
+    <div className="w-[1200px] mx-auto">
+      <ul className="flex flex-wrap justify-center items-center gap-4 py-10">
+        {movies?.map((curMovies) => {
+          return (
+            <Card
+              key={curMovies.imdbID}
+              image={curMovies.Poster}
+              title={curMovies.Title}
+              type={curMovies.Type}
+              Year={curMovies.Year}
+            />
+          );
+        })}
+      </ul>
+    </div>
   );
 }
